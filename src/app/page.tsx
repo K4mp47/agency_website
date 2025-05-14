@@ -6,6 +6,7 @@ import { CardSpotlightDemo } from "./cards";
 import { BentoGridDemo } from "./grid";
 import React, { useEffect, useRef, useState } from "react";
 import { PointerHighlightDemo } from "./pointer";
+import { AccordionDemo } from "./accordiondemo";
 
 export default function Home() {
   const [isNavHidden, setIsNavHidden] = useState(false);
@@ -62,6 +63,7 @@ export default function Home() {
         <BentoGridDemo />
         {/* Add ref to CardSpotlightDemo */}
         <div
+          id="pricing"
           className="w-full rounded-t-4xl overflow-hidden relative"
         >
           <CardSpotlightDemo />
@@ -72,8 +74,11 @@ export default function Home() {
           className="w-full overflow-hidden relative bg-black"
         >
           <PointerHighlightDemo />
-        </div>
-      <footer
+          <div className="mx-4 md:mx-[10rem] flex justify-center items-center text-white mb-[6rem]">
+            <AccordionDemo />
+          </div>
+      </div>
+      {/* <footer
          
         className="row-start-3 flex gap-4 sm:gap-[24px] flex-wrap justify-center bg-black text-white h-[40rem] items-end">
         <a
@@ -121,7 +126,7 @@ export default function Home() {
           />
           Go to nextjs.org →
         </a>
-      </footer>
+      </footer> */}
     </div>
   );
 }

@@ -393,7 +393,7 @@ export default function GlobeDemo() {
   ];
 
   return (
-    <div className="flex flex-col md:flex-row items-center justify-center min-h-screen md:h-auto dark:bg-black bg-white relative w-full">
+    <div className="flex flex-col md:flex-row items-center justify-center min-h-screen md:h-auto dark:bg-black bg-transparent relative w-full">
       
       <div className="max-w-7xl mx-auto w-full relative overflow-hidden h-full md:h-[40rem] px-4 hidden md:block">
       <motion.div
@@ -419,8 +419,13 @@ export default function GlobeDemo() {
         </p>
       </motion.div>
       <div className="absolute w-full bottom-0 inset-x-0 h-20 md:h-40 bg-gradient-to-b pointer-events-none select-none from-transparent dark:to-black to-white z-40 hidden md:block" />
-      <div className="w-full -bottom-10 md:-bottom-20 pt-4 h-48 md:h-full z-10 hidden md:block">
-        <World data={sampleArcs} globeConfig={globeConfig} />
+      <div className="w-full justify-center -bottom-10 md:-bottom-20 pt-4 h-48 md:h-full z-10 hidden md:flex">
+        <div style={{ width: "100%", height: "100%", maxWidth: "40rem", maxHeight: "40rem" }}>
+          <World
+            data={sampleArcs}
+            globeConfig={globeConfig}
+          />
+        </div>
       </div>
       </div>
       <div>
@@ -440,15 +445,22 @@ export default function GlobeDemo() {
                 }}
                 className="text-center"
               >
-                <h2 className="text-3xl md:text-6xl font-bold text-black dark:text-white font-[family-name:var(--font-geist-mono)]">
+                <h2 className="text-4xl md:text-6xl font-black text-black dark:text-white font-[family-name:var(--font-geist-mono)]">
                 Connecting the World<br /> One Web at a Time.
                 </h2>
-                <p className="w-full z-20 text-sm md:text-lg text-neutral-400 dark:text-neutral-200 max-w-md mt-2 mx-auto font-[family-name:var(--font-geist-mono)]">
+                <p className="w-full z-20 text-md md:text-lg text-neutral-500 dark:text-neutral-200 max-w-md mt-2 mx-auto font-[family-name:var(--font-geist-mono)]">
                 Explore the world of Next.js and connect
                 with others in the community. Together, we can build a better web. :)
                 </p>
               </motion.div>
+                <div style={{ position: "absolute", top: 0, left: 0, width: "100%", height: "100%", zIndex: -1 }}>
+                  <World
+                  data={sampleArcs}
+                  globeConfig={globeConfig}
+                  />
+                </div>
               </div>
+              
         </div>
       </div>
     </div>

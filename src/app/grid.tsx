@@ -27,9 +27,6 @@ export function BentoGridDemo() {
     </BentoGrid>
   );
 }
-const Skeleton = () => (
-  <div className="flex flex-1 w-full h-full min-h-[6rem] rounded-xl bg-gradient-to-br from-neutral-200 dark:from-neutral-900 dark:to-neutral-800 to-neutral-100"></div>
-);
 
 const MyImage1 = () => (
   <div className="flex flex-1 w-full h-full min-h-[6rem] rounded-xl bg-gradient-to-br from-neutral-200 dark:from-neutral-900 dark:to-neutral-800 to-neutral-100">
@@ -49,6 +46,12 @@ const MyImage3 = () => (
   </div>
 );
 
+const MyImage4 = () => (
+  <div className="flex flex-1 w-full h-full min-h-[6rem] rounded-xl bg-gradient-to-br from-neutral-200 dark:from-neutral-900 dark:to-neutral-800 to-neutral-100">
+    <img src="/bubbles1.png" alt="Sphere" className="w-full object-cover rounded-xl" />
+  </div>
+);
+
 
 const items = [
   {
@@ -60,7 +63,7 @@ const items = [
   {
     title: "The Digital Revolution",
     description: "Dive into the transformative power of technology.",
-    header: <Skeleton />,
+    header: <MyImage4 />,
     icon: <IconFileBroken className="h-4 w-4 text-neutral-500" />,
   },
   {
@@ -79,13 +82,13 @@ const items = [
   {
     title: "The Pursuit of Knowledge",
     description: "Join the quest for understanding and enlightenment.",
-    header: <Skeleton />,
+    header: <MyImage4 />,
     icon: <IconArrowWaveRightUp className="h-4 w-4 text-neutral-500" />,
   },
   {
     title: "The Joy of Creation",
     description: "Experience the thrill of bringing ideas to life.",
-    header: <Skeleton />,
+    header: <MyImage4 />,
     icon: <IconBoxAlignTopLeft className="h-4 w-4 text-neutral-500" />,
   },
   {

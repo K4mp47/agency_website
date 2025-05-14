@@ -61,7 +61,6 @@ export const MenuItem = ({
 };
 
 export const Menu = ({
-  setActive,
   children,
   isHidden,
 }: {
@@ -70,8 +69,7 @@ export const Menu = ({
   isHidden: boolean | null; // Add isHidden prop
 }) => {
   return (
-    <nav
-      onMouseLeave={() => setActive(null)} // resets the state
+    <nav // resets the state
       className={`relative max-w-lg border border-black/[0.1] rounded-2xl backdrop-blur-lg shadow-xl flex justify-center space-x-4 px-8 py-6 transition-transform duration-300 ${
         isHidden ? "-translate-y-full opacity-100" : "translate-y-0 opacity-100"
       }`}
