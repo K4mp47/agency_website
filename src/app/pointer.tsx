@@ -1,0 +1,17 @@
+import { PointerHighlight } from "@/components/ui/pointer-highlight";
+
+export function PointerHighlightDemo() {
+  return (
+    <div className="py-10 px-4 mx-auto mt-10 text-xl flex flex-col justify-start items-start text-left font-bold text-white bg-black tracking-tight md:py-20 md:mx-[30rem] md:mt-[30rem] md:text-8xl">
+      The most made up and asked
+      <div className="w-full flex justify-start items-start">
+      <PointerHighlight
+        rectangleClassName="bg-neutral-700 dark:bg-neutral-700 border-neutral-600 dark:border-neutral-600"
+        pointerClassName="text-blue-400"
+      >
+        <span className="relative z-10">questions:</span>
+      </PointerHighlight>
+      </div>
+    </div>
+  );
+}

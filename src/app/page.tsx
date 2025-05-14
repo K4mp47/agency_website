@@ -1,57 +1,81 @@
+"use client";
 import Image from "next/image";
+import GlobeDemo from "./globe";
+import { NavbarDemo } from "./navbar";
+import { CardSpotlightDemo } from "./cards";
+import { BentoGridDemo } from "./grid";
+import React, { useEffect, useRef, useState } from "react";
+import { PointerHighlightDemo } from "./pointer";
 
 export default function Home() {
-  return (
-    <div className="grid grid-rows-[20px_1fr_20px] items-center justify-items-center min-h-screen p-8 pb-20 gap-16 sm:p-20 font-[family-name:var(--font-geist-sans)]">
-      <main className="flex flex-col gap-[32px] row-start-2 items-center sm:items-start">
-        <Image
-          className="dark:invert"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={180}
-          height={38}
-          priority
-        />
-        <ol className="list-inside list-decimal text-sm/6 text-center sm:text-left font-[family-name:var(--font-geist-mono)]">
-          <li className="mb-2 tracking-[-.01em]">
-            Get started by editing{" "}
-            <code className="bg-black/[.05] dark:bg-white/[.06] px-1 py-0.5 rounded font-[family-name:var(--font-geist-mono)] font-semibold">
-              src/app/page.tsx
-            </code>
-            .
-          </li>
-          <li className="tracking-[-.01em]">
-            Save and see your changes instantly.
-          </li>
-        </ol>
+  const [isNavHidden, setIsNavHidden] = useState(false);
+  const cardSpotlightRef = useRef<HTMLDivElement>(null);
 
-        <div className="flex gap-4 items-center flex-col sm:flex-row">
-          <a
-            className="rounded-full border border-solid border-transparent transition-colors flex items-center justify-center bg-foreground text-background gap-2 hover:bg-[#383838] dark:hover:bg-[#ccc] font-medium text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5 sm:w-auto"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        setIsNavHidden(entry.isIntersecting); // Hide nav when CardSpotlightDemo is visible
+      },
+      { threshold: 0.1 } // Adjust threshold as needed
+    );
+
+    const currentRef = cardSpotlightRef.current;
+    if (currentRef) {
+      observer.observe(currentRef);
+    }
+
+    return () => {
+      if (currentRef) {
+        observer.unobserve(currentRef);
+      }
+    };
+  }, []);
+
+  return (
+    <div className="">
+      <main className="flex flex-col sm:gap-[32px] row-start-2 justify-between w-full">
+        <div className="z-40 top-10 sm:top-8 left-5 sm:left-8 hidden md:block fixed">
+          <svg
+            width="24"
+            height="24"
+            viewBox="0 0 24 24"
+            fill="none"
+            xmlns="http://www.w3.org/2000/svg"
+            className="dark:fill-black"
           >
-            <Image
-              className="dark:invert"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={20}
-              height={20}
-            />
-            Deploy now
-          </a>
-          <a
-            className="rounded-full border border-solid border-black/[.08] dark:border-white/[.145] transition-colors flex items-center justify-center hover:bg-[#f2f2f2] dark:hover:bg-[#1a1a1a] hover:border-transparent font-medium text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5 w-full sm:w-auto md:w-[158px]"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Read our docs
-          </a>
+            <path d="M12 0L24 24L0 24Z" fill="currentColor" />
+          </svg>
+        </div>
+        {/* Pass isNavHidden to NavbarDemo */}
+        <NavbarDemo isHidden={isNavHidden} />
+        <GlobeDemo />
+        <div className="flex flex-col gap-4 items-center text-center px-4 sm:px-0">
+          <h1 className="text-2xl sm:text-4xl font-bold tracking-[-.01em]">
+            Create Next App
+          </h1>
+          <p className="text-sm sm:text-base mt-4 sm:mt-8 px-4 sm:px-[30rem]">
+            Rune offers design engineering as a service. This means we can solve
+            your SaaS needs from design 👉 database. Bring the idea 💡 and watch as
+            it comes to light.
+          </p>
+        </div>
+        <BentoGridDemo />
+        {/* Add ref to CardSpotlightDemo */}
+        <div
+          className="w-full rounded-t-4xl overflow-hidden relative"
+        >
+          <CardSpotlightDemo />
         </div>
       </main>
-      <footer className="row-start-3 flex gap-[24px] flex-wrap items-center justify-center">
+      <div
+          ref={cardSpotlightRef}
+          className="w-full overflow-hidden relative bg-black"
+        >
+          <PointerHighlightDemo />
+        </div>
+      <footer
+         
+        className="row-start-3 flex gap-4 sm:gap-[24px] flex-wrap justify-center bg-black text-white h-[40rem] items-end">
         <a
           className="flex items-center gap-2 hover:underline hover:underline-offset-4"
           href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
