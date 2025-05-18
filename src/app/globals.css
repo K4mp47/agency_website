@@ -7,6 +7,15 @@ html {
   overflow-x: hidden;
 }
 
+html, body {
+  overflow-y: scroll;
+  scrollbar-width: none; /* Firefox */
+  -ms-overflow-style: none;  /* IE and Edge */
+}
+html::-webkit-scrollbar, body::-webkit-scrollbar {
+  display: none; /* Chrome, Safari, Opera */
+}
+
 * {
   font-family: "Inter", sans-serif;
 }

@@ -2,39 +2,42 @@ import { CardSpotlight } from "@/components/ui/card-spotlight";
 
 export function CardSpotlightDemo() {
   return (
-    <div className="flex flex-wrap gap-32 w-full justify-center bg-black pt-[30rem] mt-[8rem] px-4 rounded-t-4xl">
-      <CardSpotlight className="h-96 w-full sm:w-80 md:w-96 bg-white" color="#ffffff">
+    <div className="flex flex-wrap gap-4 w-full justify-center bg-black pt-[30rem] mt-[8rem] px-4 rounded-t-4xl">
+      <h2 className="w-full text-center text-4xl font-extrabold text-white mb-12" id="pricing">
+        Our Plans
+      </h2>
+      <CardSpotlight className="h-120 w-full sm:w-80 md:w-120 bg-white" color="#ffffff">
         <p className="text-lg sm:text-xl font-bold relative z-20 mt-2 text-black">
-          Authentication steps
+          Standard 
         </p>
         <div className="text-neutral-700 mt-4 relative z-20">
-          Follow these steps to secure your account:
-          <ul className="list-none mt-2">
+          <p className="text-6xl font-bold text-black">$1000</p>
+          <ul className="list-none mt-4 text-lg">
             <Step title="Enter your email address" />
             <Step title="Create a strong password" />
             <Step title="Set up two-factor authentication" />
             <NoStep title="Verify your identity" />
           </ul>
         </div>
-        <p className="text-neutral-700 mt-4 relative z-20 text-sm">
+        <p className="text-neutral-700 mt-28 relative z-20 text-sm">
           Ensuring your account is properly secured helps protect your personal
           information and data.
         </p>
       </CardSpotlight>
-      <CardSpotlight className="h-96 w-full sm:w-80 md:w-96 bg-white" color="#ffffff">
-        <p className="text-lg sm:text-xl font-bold relative z-20 mt-2 text-black">
-          Authentication steps
+      <CardSpotlight className="h-120 w-full sm:w-80 md:w-120 bg-white" color="#ffffff">
+        <p className="text-lg sm:text-xl font-black relative z-20 mt-2 text-black">
+          Globe +
         </p>
         <div className="text-neutral-700 mt-4 relative z-20">
-          Follow these steps to secure your account:
-          <ul className="list-none mt-2">
+          <p className="text-6xl font-bold text-black">$9000</p>
+          <ul className="list-none mt-4 text-lg">
             <Step title="Enter your email address" />
             <Step title="Create a strong password" />
             <Step title="Set up two-factor authentication" />
             <Step title="Verify your identity" />
           </ul>
         </div>
-        <p className="text-neutral-700 mt-4 relative z-20 text-sm">
+        <p className="text-neutral-700 mt-28 relative z-20 text-sm">
           Ensuring your account is properly secured helps protect your personal
           information and data.
         </p>

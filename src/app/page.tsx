@@ -1,5 +1,4 @@
 "use client";
-import Image from "next/image";
 import GlobeDemo from "./globe";
 import { NavbarDemo } from "./navbar";
 import { CardSpotlightDemo } from "./cards";
@@ -7,33 +6,35 @@ import { BentoGridDemo } from "./grid";
 import React, { useEffect, useRef, useState } from "react";
 import { PointerHighlightDemo } from "./pointer";
 import { AccordionDemo } from "./accordiondemo";
+import { HeroParallaxDemo } from "./Parallax";
+
 
 export default function Home() {
   const [isNavHidden, setIsNavHidden] = useState(false);
-  const cardSpotlightRef = useRef<HTMLDivElement>(null);
+  const sentinelRef = useRef<HTMLDivElement>(null);
 
-  useEffect(() => {
-    const observer = new IntersectionObserver(
-      ([entry]) => {
-        setIsNavHidden(entry.isIntersecting); // Hide nav when CardSpotlightDemo is visible
-      },
-      { threshold: 0.1 } // Adjust threshold as needed
-    );
+  // useEffect(() => {
+  //   const observer = new IntersectionObserver(
+  //     ([entry]) => {
+  //       setIsNavHidden(entry.isIntersecting); // Hide nav when CardSpotlightDemo is visible
+  //     },
+  //     { threshold: 0.1 } // Adjust threshold as needed
+  //   );
 
-    const currentRef = cardSpotlightRef.current;
-    if (currentRef) {
-      observer.observe(currentRef);
-    }
+  //   if (sentinelRef.current) {
+  //     observer.observe(sentinelRef.current);
+  //   }
 
-    return () => {
-      if (currentRef) {
-        observer.unobserve(currentRef);
-      }
-    };
-  }, []);
+  //   return () => {
+  //     if (sentinelRef.current) {
+  //       observer.unobserve(sentinelRef.current);
+  //     }
+  //   };
+  // }, []);
 
   return (
     <div className="">
+      <NavbarDemo isHidden={isNavHidden} />
       <main className="flex flex-col sm:gap-[32px] row-start-2 justify-between w-full">
         <div className="z-40 top-10 sm:top-8 left-5 sm:left-8 hidden md:block fixed">
           <svg
@@ -47,36 +48,33 @@ export default function Home() {
             <path d="M12 0L24 24L0 24Z" fill="currentColor" />
           </svg>
         </div>
-        {/* Pass isNavHidden to NavbarDemo */}
-        <NavbarDemo isHidden={isNavHidden} />
         <GlobeDemo />
+        <HeroParallaxDemo />
+        <div className="flex flex-col gap-4 items-center text-center px-4 sm:px-0"></div>
         <div className="flex flex-col gap-4 items-center text-center px-4 sm:px-0">
-          <h1 className="text-2xl sm:text-4xl font-bold tracking-[-.01em]">
+          <h1 className="text-2xl sm:text-7xl font-bold tracking-[-.01em]">
             Create Next App
           </h1>
-          <p className="text-sm sm:text-base mt-4 sm:mt-8 px-4 sm:px-[30rem]">
+          <p className="text-sm sm:text-base mt-4 sm:mt-8 px-4 sm:px-[10rem] xl:px-[32rem]">
             Rune offers design engineering as a service. This means we can solve
             your SaaS needs from design 👉 database. Bring the idea 💡 and watch as
             it comes to light.
           </p>
         </div>
         <BentoGridDemo />
-        {/* Add ref to CardSpotlightDemo */}
+        {/* Place the sentinel div here, just before the section where nav should hide */}
+        <div style={{ height: 1 }} />
         <div
-          id="pricing"
           className="w-full rounded-t-4xl overflow-hidden relative"
         >
           <CardSpotlightDemo />
         </div>
       </main>
-      <div
-          ref={cardSpotlightRef}
-          className="w-full overflow-hidden relative bg-black"
-        >
-          <PointerHighlightDemo />
-          <div className="mx-4 md:mx-[10rem] flex justify-center items-center text-white mb-[6rem]">
-            <AccordionDemo />
-          </div>
+      <div className="w-full overflow-hidden relative bg-black" ref={sentinelRef}>
+        <PointerHighlightDemo />
+        <div className="mx-4 md:mx-[10rem] flex justify-center items-center text-white mb-[6rem]">
+          <AccordionDemo />
+        </div>
       </div>
       {/* <footer
          

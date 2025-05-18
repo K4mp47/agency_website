@@ -70,7 +70,7 @@ export const Menu = ({
 }) => {
   return (
     <nav // resets the state
-      className={`relative max-w-lg border border-black/[0.1] rounded-2xl backdrop-blur-lg shadow-xl flex justify-center space-x-4 px-8 py-6 transition-transform duration-300 ${
+      className={`relative max-w-lg md:text-lg border border-black/[0.1] rounded-2xl backdrop-blur-lg shadow-xl flex justify-center space-x-4 px-8 py-6 transition-transform duration-300 ${
         isHidden ? "-translate-y-full opacity-100" : "translate-y-0 opacity-100"
       }`}
     >
@@ -118,7 +118,7 @@ export const HoveredLink = ({
   return (
     <a
       {...rest}
-      className="text-neutral-700 dark:text-neutral-200 hover:text-black "
+      className="text-neutral-800 dark:text-neutral-200 hover:text-black "
     >
       {children}
     </a>

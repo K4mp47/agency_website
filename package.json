@@ -12,6 +12,7 @@
     "@radix-ui/react-accordion": "^1.2.10",
     "@react-three/drei": "^10.0.6",
     "@react-three/fiber": "^9.0.0-alpha.8",
+    "@studio-freight/lenis": "^1.0.42",
     "@tabler/icons-react": "^3.31.0",
     "@tailwindcss/cli": "^4.1.4",
     "class-variance-authority": "^0.7.1",
