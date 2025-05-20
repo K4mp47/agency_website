@@ -3,7 +3,7 @@ import React from "react";
 import { HoveredLink, Menu } from "../components/ui/navbar-menu";
 import { cn } from "@/lib/utils";
 
-export function NavbarDemo({isHidden}: {isHidden: boolean}) {
+export function NavbarDemo({isHidden}: {isHidden?: boolean}) {
   return (
     <div className="relative flex items-center justify-center w-full text-black">
       <Navbar className="top-4" isHidden={isHidden} />
@@ -22,7 +22,7 @@ function Navbar({ className, isHidden = null }: { className?: string; isHidden?:
           href="#pricing"
           onClick={e => {
             e.preventDefault();
-            const el = document.querySelector("#pricing");
+            const el = document.querySelector("#services");
             if (el) {
               el.scrollIntoView({ behavior: "smooth" });
             }
@@ -34,7 +34,7 @@ function Navbar({ className, isHidden = null }: { className?: string; isHidden?:
           href="#product"
           onClick={e => {
             e.preventDefault();
-            const el = document.querySelector("#pricing");
+            const el = document.querySelector("#product");
             if (el) {
               el.scrollIntoView({ behavior: "smooth" });
             }

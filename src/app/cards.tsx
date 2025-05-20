@@ -2,8 +2,8 @@ import { CardSpotlight } from "@/components/ui/card-spotlight";
 
 export function CardSpotlightDemo() {
   return (
-    <div className="flex flex-wrap gap-4 w-full justify-center bg-black pt-[30rem] mt-[8rem] px-4 rounded-t-4xl">
-      <h2 className="w-full text-center text-4xl font-extrabold text-white mb-12" id="pricing">
+    <div className="flex flex-wrap gap-4 w-full justify-center bg-black pt-[24rem] mt-[8rem] px-4 rounded-t-4xl" id="pricing">
+      <h2 className="w-full text-center text-2xl sm:text-7xl font-extrabold text-white mb-12">
         Our Plans
       </h2>
       <CardSpotlight className="h-120 w-full sm:w-80 md:w-120 bg-white" color="#ffffff">

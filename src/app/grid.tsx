@@ -1,4 +1,5 @@
 import React from "react";
+import Image from "next/image";
 import { BentoGrid, BentoGridItem } from "@/components/ui/bento-grid";
 import {
   IconArrowWaveRightUp,
@@ -29,26 +30,26 @@ export function BentoGridDemo() {
 }
 
 const MyImage1 = () => (
-  <div className="flex flex-1 w-full h-full min-h-[6rem] rounded-xl bg-gradient-to-br from-neutral-200 dark:from-neutral-900 dark:to-neutral-800 to-neutral-100">
-    <img src="/spheres1.png" alt="Sphere" className="w-full object-cover rounded-xl" />
+  <div className="flex flex-1 w-full h-full min-h-[6rem] rounded-xl bg-gradient-to-br from-neutral-200 dark:from-neutral-900 dark:to-neutral-800 to-neutral-100 relative">
+    <Image src="/spheres1.png" alt="Sphere" fill className="object-cover rounded-xl" />
   </div>
 );
 
 const MyImage2 = () => (
-  <div className="flex flex-1 w-full h-full min-h-[6rem] rounded-xl bg-gradient-to-br from-neutral-200 dark:from-neutral-900 dark:to-neutral-800 to-neutral-100">
-    <img src="/glass1.png" alt="Sphere" className="w-full object-cover rounded-xl" />
+  <div className="flex flex-1 w-full h-full min-h-[6rem] rounded-xl bg-gradient-to-br from-neutral-200 dark:from-neutral-900 dark:to-neutral-800 to-neutral-100 relative">
+    <Image src="/glass1.png" alt="Sphere" fill className="object-cover rounded-xl" />
   </div>
 );
 
 const MyImage3 = () => (
-  <div className="flex flex-1 w-full h-full min-h-[6rem] rounded-xl bg-gradient-to-br from-neutral-200 dark:from-neutral-900 dark:to-neutral-800 to-neutral-100">
-    <img src="/spheres2.png" alt="Sphere" className="w-full object-cover rounded-xl" />
+  <div className="flex flex-1 w-full h-full min-h-[6rem] rounded-xl bg-gradient-to-br from-neutral-200 dark:from-neutral-900 dark:to-neutral-800 to-neutral-100 relative">
+    <Image src="/spheres2.png" alt="Sphere" fill className="object-cover rounded-xl" />
   </div>
 );
 
 const MyImage4 = () => (
-  <div className="flex flex-1 w-full h-full min-h-[6rem] rounded-xl bg-gradient-to-br from-neutral-200 dark:from-neutral-900 dark:to-neutral-800 to-neutral-100">
-    <img src="/bubbles1.png" alt="Sphere" className="w-full object-cover rounded-xl" />
+  <div className="flex flex-1 w-full h-full min-h-[6rem] rounded-xl bg-gradient-to-br from-neutral-200 dark:from-neutral-900 dark:to-neutral-800 to-neutral-100 relative">
+    <Image src="/bubbles1.png" alt="Sphere" fill className="object-cover rounded-xl" />
   </div>
 );
 

@@ -445,7 +445,7 @@ export default function GlobeDemo() {
                 }}
                 className="text-center"
               >
-                <h2 className="text-4xl md:text-6xl font-black text-black dark:text-white font-[family-name:var(--font-geist-mono)]">
+                <h2 className="text-2xl sm:text-7xl font-black text-black dark:text-white font-[family-name:var(--font-geist-mono)]">
                 Connecting the World<br /> One Web at a Time.
                 </h2>
                 <p className="w-full z-20 text-md md:text-lg text-neutral-500 dark:text-neutral-200 max-w-md mt-2 mx-auto font-[family-name:var(--font-geist-mono)]">
