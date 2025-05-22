@@ -48,7 +48,7 @@ export const products = [
     title: "Test",
     link: "#blank",
     thumbnail:
-      "/spheres2.png",
+      "/spheres2.jpg",
   },
   {
     title: "Test",
@@ -72,7 +72,7 @@ export const products = [
     title: "Test",
     link: "#blank",
     thumbnail:
-      "/spheres2.png",
+      "/spheres2.jpg",
   },
 
   {
@@ -85,7 +85,7 @@ export const products = [
     title: "Test",
     link: "#blank",
     thumbnail:
-      "/spheres2.png",
+      "/spheres2.jpg",
   },
   {
     title: "Test",

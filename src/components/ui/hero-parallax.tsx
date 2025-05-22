@@ -9,7 +9,7 @@ import {
   MotionValue,
 } from "motion/react";
 
-
+const isMobile = typeof window !== "undefined" && window.innerWidth < 768;
 
 export const HeroParallax = ({
   products,
@@ -20,9 +20,9 @@ export const HeroParallax = ({
     thumbnail: string;
   }[];
 }) => {
-  const firstRow = products.slice(0, 5);
-  const secondRow = products.slice(5, 10);
-  const thirdRow = products.slice(10, 15);
+  const firstRow = isMobile ? products.slice(0, 2) : products.slice(0, 5);
+  const secondRow = isMobile ? products.slice(2, 4) : products.slice(5, 10);
+  const thirdRow = isMobile ? products.slice(10, 15) : products.slice(10, 15);
   const ref = React.useRef(null);
   const { scrollYProgress } = useScroll({
     target: ref,
@@ -71,29 +71,29 @@ export const HeroParallax = ({
         }}
       >
         <motion.div className="flex flex-row-reverse space-x-reverse space-x-20 mb-20">
-          {firstRow.map((product) => (
+          {firstRow.map((product, idx) => (
             <ProductCard
               product={product}
               translate={translateX}
-              key={product.title}
+              key={`${product.title}-${idx}`}
             />
           ))}
         </motion.div>
         <motion.div className="flex flex-row  mb-20 space-x-20 ">
-          {secondRow.map((product) => (
+          {secondRow.map((product, idx) => (
             <ProductCard
               product={product}
               translate={translateXReverse}
-              key={product.title}
+              key={`${product.title}-${idx}`}
             />
           ))}
         </motion.div>
         <motion.div className="flex flex-row-reverse space-x-reverse space-x-20">
-          {thirdRow.map((product) => (
+          {thirdRow.map((product, idx) => (
             <ProductCard
               product={product}
               translate={translateX}
-              key={product.title}
+              key={`${product.title}-${idx}`}
             />
           ))}
         </motion.div>
@@ -147,6 +147,7 @@ export const ProductCard = ({
           src={product.thumbnail}
           height={600}
           width={600}
+          sizes="(max-width: 768px) 100vw, 600px"
           className="object-cover object-left-top absolute h-full w-full inset-0 rounded-2xl"
           alt={product.title}
         />

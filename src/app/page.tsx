@@ -1,4 +1,3 @@
-"use client";
 import GlobeDemo from "./globe";
 import Image from "next/image";
 import { NavbarDemo } from "./navbar";
@@ -14,7 +13,6 @@ export default function Home() {
   return (
     <div className="">
       <NavbarDemo />
-      <main className="flex flex-col sm:gap-[32px] row-start-2 justify-between w-full">
         <div className="z-40 top-10 sm:top-8 left-5 sm:left-8 hidden md:block fixed">
           <svg
             width="24"
@@ -29,7 +27,7 @@ export default function Home() {
         </div>
         <GlobeDemo />
         <HeroParallaxDemo />
-        <div className="flex flex-col gap-4 items-center text-center pt-40 px-4 sm:px-0" id="product">
+        <div className="flex flex-col gap-4 items-center text-center pt-40 px-4 sm:px-0 mb-8" id="product">
           <h1 className="text-2xl sm:text-7xl font-bold tracking-[-.01em]">
             Create Next App
           </h1>
@@ -46,7 +44,6 @@ export default function Home() {
         >
           <CardSpotlightDemo />
         </div>
-      </main>
       <div className="w-full overflow-hidden relative bg-black">
         <PointerHighlightDemo />
         <div className="mx-4 md:mx-[10rem] flex justify-center items-center text-white mb-[6rem]">
@@ -54,7 +51,7 @@ export default function Home() {
         </div>
       </div>
       <footer
-        className="row-start-3 flex gap-4 sm:gap-[24px] flex-wrap justify-center bg-black text-white h-[24rem] pb-8 items-end"
+        className="row-start-3 flex gap-2 sm:gap-[24px] flex-wrap justify-center bg-black text-white h-[24rem] pb-1 lg:pb-8  items-end"
       >
         <a
           className="flex items-center gap-2 hover:underline hover:underline-offset-4"
