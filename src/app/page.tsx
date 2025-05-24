@@ -1,15 +1,50 @@
+"use client"; 
 import GlobeDemo from "./globe";
 import Image from "next/image";
+import dynamic from "next/dynamic";
 import { NavbarDemo } from "./navbar";
-import { CardSpotlightDemo } from "./cards";
-import { BentoGridDemo } from "./grid";
-import React from "react";
-import { PointerHighlightDemo } from "./pointer";
-import { AccordionDemo } from "./accordiondemo";
+import React, { useRef } from "react";
 import { HeroParallaxDemo } from "./Parallax";
+import { motion, useInView } from "motion/react";
+
+const BentoGridDemo = dynamic(() => import("./grid").then((mod) => mod.BentoGridDemo), {
+  loading: () => <p>Loading grid...</p>,
+  ssr: false,
+});
+
+const CardSpotlightDemo = dynamic(() => import("./cards").then((mod) => mod.CardSpotlightDemo), {
+  loading: () => <p>Loading card spotlight...</p>,
+  ssr: false,
+});
+
+const PointerHighlightDemo = dynamic(() => import("./pointer").then((mod) => mod.PointerHighlightDemo), {
+  loading: () => <p>Loading pointer highlight...</p>,
+  ssr: false,
+});
+
+const AccordionDemo = dynamic(() => import("./accordiondemo").then((mod) => mod.AccordionDemo), {
+  loading: () => <p>Loading accordion...</p>,
+  ssr: false,
+});
 
 
 export default function Home() {
+  const title = useRef(null);
+  const isInView = useInView(title, { once: true, margin: '-10%' });
+  const titleWords = "Create Next App".split(" ");
+
+  const animation = {
+    initial: { y: "100%" },
+    enter: (i: number) => ({
+      y: 0,
+      transition: {
+        duration: 0.75,
+        ease: [0.33, 1, 0.68, 1],
+        delay: i * 0.075,
+      },
+    }),
+  };
+  
   return (
     <div className="">
       <NavbarDemo />
@@ -28,8 +63,20 @@ export default function Home() {
         <GlobeDemo />
         <HeroParallaxDemo />
         <div className="flex flex-col gap-4 items-center text-center pt-40 px-4 sm:px-0 mb-8" id="product">
-          <h1 className="text-2xl sm:text-7xl font-bold tracking-[-.01em]">
-            Create Next App
+          <h1 ref={title} className="text-4xl sm:text-7xl font-bold tracking-[-.01em]">
+            {titleWords.map((word, i) => (
+            <span key={i} className="relative overflow-hidden mr-4 inline-block">
+              <motion.span
+                className="inline-block"
+                custom={i}
+                variants={animation}
+                initial="initial"
+                animate={isInView ? "enter" : ""}
+              >
+                {word}
+              </motion.span>
+            </span>
+          ))}
           </h1>
           <p className="text-sm sm:text-base mt-4 sm:mt-8 px-4 sm:px-[10rem] xl:px-[32rem]">
             Rune offers design engineering as a service. This means we can solve
@@ -51,7 +98,7 @@ export default function Home() {
         </div>
       </div>
       <footer
-        className="row-start-3 flex gap-2 sm:gap-[24px] flex-wrap justify-center bg-black text-white h-[24rem] pb-1 lg:pb-8  items-end"
+        className="row-start-3 flex gap-2 sm:gap-[24px] flex-wrap justify-center bg-black text-white h-[24rem] pb-2 lg:pb-8  items-end"
       >
         <a
           className="flex items-center gap-2 hover:underline hover:underline-offset-4"

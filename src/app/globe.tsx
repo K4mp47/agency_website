@@ -1,7 +1,8 @@
 "use client";
-import React, { useRef, useState, useEffect } from "react";
+// import React, { useRef, useState, useEffect } from "react";
 import { motion } from "motion/react";
 import dynamic from "next/dynamic";
+import Image from "next/image";
 
 const World = dynamic(() => import('../components/ui/globe').then((m) => m.World), {
   ssr: false,
@@ -392,22 +393,6 @@ export default function GlobeDemo() {
     },
   ];
 
-  // Intersection Observer logic for desktop and mobile globes
-  const mobileGlobeRef = useRef<HTMLDivElement>(null);
-  const [showMobileGlobe, setShowMobileGlobe] = useState(false);
-
-  useEffect(() => {
-    const observerMobile = new window.IntersectionObserver(
-      ([entry]) => setShowMobileGlobe(entry.isIntersecting),
-      { threshold: 0.1 }
-    );
-    const currentRef = mobileGlobeRef.current;
-    if (currentRef) observerMobile.observe(currentRef);
-    return () => {
-      if (currentRef) observerMobile.unobserve(currentRef);
-    };
-  }, []);
-
   return (
     <div className="flex flex-col md:flex-row items-center justify-center min-h-screen md:h-auto dark:bg-black bg-transparent relative w-full mb-20">
       
@@ -429,7 +414,7 @@ export default function GlobeDemo() {
         <h2 className="text-center text-lg md:text-6xl font-bold text-black dark:text-white ">
         Connecting the World<br /> One Web at a Time.
         </h2>
-        <p className="w-full z-20 text-center text-sm md:text-lg font-normal text-neutral-700 dark:text-neutral-200 max-w-md mt-2 mx-auto font-[family-name:var(--font-geist-mono)]">
+        <p className="w-full z-20 text-center text-sm md:text-lg font-normal text-neutral-700 dark:text-neutral-200 max-w-md mt-2 mx-auto">
         Explore the world of Next.js and connect
         with others in the community. Together, we can build a better web. :)
         </p>
@@ -445,41 +430,15 @@ export default function GlobeDemo() {
       </div>
       </div>
       <div>
-        <div className="absolute top-0 left-0 block sm:hidden">
-              <div className="flex items-center justify-center max-w-7xl mx-auto w-full h-screen relative overflow-hidden px-4">
-                <div style={{ position: "absolute", top: 0, left: 0, width: "100%", height: "100%", zIndex: -1, display: "flex", alignItems: "center", justifyContent: "center" }}>
-                {/* {showMobileGlobe && ( */}
-                  <World
-                    data={sampleArcs}
-                    globeConfig={globeConfig}
-                  />
-                {/* )} */}
-                </div>
-              <motion.div
-                initial={{
-                opacity: 0,
-                y: 20,
-                }}
-                animate={{
-                opacity: 1,
-                y: 0,
-                }}
-                transition={{
-                duration: 1,
-                }}
-                className="text-center"
-              >
-                <h2 className="text-2xl sm:text-7xl font-black text-black dark:text-white font-[family-name:var(--font-geist-mono)]">
-                  Connecting the World<br /> One Web at a Time.
-                </h2>
-                <p className="w-full z-20 text-md md:text-lg text-neutral-500 dark:text-neutral-200 max-w-md mt-2 mx-auto font-[family-name:var(--font-geist-mono)]">
-                  Explore the world of Next.js and connect
-                  with others in the community. Together, we can build a better web. :)
-                </p>
-              </motion.div>
-              </div>
-              
+        <div className="absolute top-0 left-0 block sm:hidden w-full h-[110vh] overflow-hidden rounded-b-4xl">
+          <Image src="/spheres1.png" layout="fill" objectFit="cover" alt="Background Image" />
+          <div className="flex items-end justify-end w-full h-screen relative py-[7rem] px-[1rem]">
+            <h2 className="text-5xl sm:text-7xl font-extrabold text-white text-right">
+              Connect <br/> the <p className="doto font-black">World</p>
+            </h2>
+          </div>
         </div>
+        {/* <div className="absolute w-full bottom-0 inset-x-0 h-60 bg-gradient-to-b from-transparent to-white pointer-events-none select-none z-40 pb-10" /> */}
       </div>
     </div>
   );

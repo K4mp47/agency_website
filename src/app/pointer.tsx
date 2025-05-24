@@ -11,7 +11,7 @@ export const PointerHighlightDemo = React.memo(function PointerHighlightDemo() {
   const pointerClassName = useMemo(() => "text-blue-400", []);
 
   return (
-    <div className="py-10 px-4 md:px-0 mx-auto mt-10 text-2xl sm:text-7xl flex flex-col justify-start items-start text-left font-bold text-white bg-black tracking-tight md:py-20 md:mx-[10rem] md:mt-[30rem] md:text-8xl">
+    <div className="py-10 px-4 md:px-0 mx-auto mt-10 text-4xl sm:text-7xl flex flex-col justify-start items-start text-left font-bold text-white bg-black tracking-tight md:py-20 md:mx-[10rem] md:mt-[30rem] md:text-8xl">
       The most made up and asked
       <div className="w-full flex justify-start items-start">
         <PointerHighlight
