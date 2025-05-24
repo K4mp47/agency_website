@@ -1,10 +1,13 @@
 {
   "name": "agency_website",
+  "homepage": "https://k4mp47.github.io/agency_website",
   "version": "0.1.0",
   "private": true,
   "scripts": {
-    "dev": "next dev --turbopack",
     "build": "next build",
+    "predeploy": "npm run build",
+    "deploy": "gh-pages -d out",
+    "dev": "next dev --turbopack",
     "start": "next start",
     "lint": "next lint"
   },
@@ -38,6 +41,7 @@
     "@types/react-dom": "^19",
     "eslint": "^9",
     "eslint-config-next": "15.3.0",
+    "gh-pages": "^6.3.0",
     "tailwindcss": "^4.1.4",
     "typescript": "^5"
   }
