@@ -1,31 +1,14 @@
 "use client"; 
 import GlobeDemo from "./globe";
 import Image from "next/image";
-import dynamic from "next/dynamic";
 import { NavbarDemo } from "./navbar";
 import React, { useRef } from "react";
 import { HeroParallaxDemo } from "./Parallax";
 import { motion, useInView } from "motion/react";
-
-const BentoGridDemo = dynamic(() => import("./grid").then((mod) => mod.BentoGridDemo), {
-  loading: () => <p>Loading grid...</p>,
-  ssr: false,
-});
-
-const CardSpotlightDemo = dynamic(() => import("./cards").then((mod) => mod.CardSpotlightDemo), {
-  loading: () => <p>Loading card spotlight...</p>,
-  ssr: false,
-});
-
-const PointerHighlightDemo = dynamic(() => import("./pointer").then((mod) => mod.PointerHighlightDemo), {
-  loading: () => <p>Loading pointer highlight...</p>,
-  ssr: false,
-});
-
-const AccordionDemo = dynamic(() => import("./accordiondemo").then((mod) => mod.AccordionDemo), {
-  loading: () => <p>Loading accordion...</p>,
-  ssr: false,
-});
+import { BentoGridDemo } from "./grid";
+import { CardSpotlightDemo } from "./cards";
+import { PointerHighlightDemo } from "./pointer";
+import { AccordionDemo } from "./accordiondemo";
 
 
 export default function Home() {
