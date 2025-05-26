@@ -3,7 +3,12 @@ import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
 import Lenis from "lenis";
 import { useEffect } from "react";
+import { Doto } from "next/font/google";
 
+const doto = Doto({
+  variable: "--font-doto",
+  subsets: ["latin"],
+});
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -40,7 +45,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body
-        className={`${geistSans.variable} ${geistMono.variable} `}
+        className={`${geistSans.variable} ${geistMono.variable} ${doto.variable}`}
       >
         {children}
       </body>
