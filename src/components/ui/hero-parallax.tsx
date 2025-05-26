@@ -69,26 +69,23 @@ export const HeroParallax = ({
     <div
       ref={ref}
       id="services"
-      className="h-[230vh] md:h-[280vh] pt-40 overflow-hidden antialiased relative flex flex-col self-auto [perspective:1000px] [transform-style:preserve-3d]"
+      className="h-[230vh] xl:h-[280vh] pt-40 overflow-hidden antialiased relative flex flex-col self-auto [perspective:1000px] [transform-style:preserve-3d]"
     >
       <Header />
       <motion.div
-        {
-          ...(isMobile
+        style={
+          isMobile
             ? {
-          style: {
-            // On mobile, exclude opacity
-            opacity: 1
-          },
+                // On mobile, exclude opacity and use static translateY
+                opacity: 1,
+                translateY: 0,
               }
             : {
-          style: {
-            rotateX,
-            rotateZ,
-            translateY,
-            opacity,
-          },
-              })
+                rotateX,
+                rotateZ,
+                translateY,
+                opacity,
+              }
         }
       >
         <motion.div className="flex flex-row-reverse space-x-reverse space-x-20 mb-20">
