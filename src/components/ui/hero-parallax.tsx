@@ -68,7 +68,7 @@ export const HeroParallax = ({
   return (
     <div
       ref={ref}
-      id="services"
+      id="product"
       className="h-[230vh] xl:h-[280vh] pt-40 overflow-hidden antialiased relative flex flex-col self-auto [perspective:1000px] [transform-style:preserve-3d]"
     >
       <Header />

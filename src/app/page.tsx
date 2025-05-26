@@ -1,7 +1,6 @@
 "use client"; 
 import GlobeDemo from "./globe";
 import Image from "next/image";
-import { NavbarDemo } from "./navbar";
 import React from "react";
 import { HeroParallaxDemo } from "./Parallax";
 import { BentoGridDemo } from "./grid";
@@ -9,35 +8,35 @@ import { CardSpotlightDemo } from "./cards";
 import { PointerHighlightDemo } from "./pointer";
 import { AccordionDemo } from "./accordiondemo";
 import NextApp from "./nextapp";
+import { FloatingNavDemo } from "./floatbar";
 
 
 export default function Home() {
-  
+
   return (
     <div className="">
-      <NavbarDemo />
-        <div className="z-40 top-10 sm:top-8 left-5 sm:left-8 hidden md:block fixed">
-          <svg
-            width="24"
-            height="24"
-            viewBox="0 0 24 24"
-            fill="none"
-            xmlns="http://www.w3.org/2000/svg"
-            className="dark:fill-black"
-          >
-            <path d="M12 0L24 24L0 24Z" fill="currentColor" />
-          </svg>
-        </div>
-        <GlobeDemo />
-        <HeroParallaxDemo />
-        <NextApp />
-        <BentoGridDemo />
-        <div style={{ height: 1 }} />
-        <div
-          className="w-full rounded-t-4xl overflow-hidden relative"
+      <FloatingNavDemo />
+      {/* Reserve space for the navbar */}  
+      <div className="z-40 top-10 sm:top-8 left-5 sm:left-8 hidden md:block fixed">
+        <svg
+          width="24"
+          height="24"
+          viewBox="0 0 24 24"
+          fill="none"
+          xmlns="http://www.w3.org/2000/svg"
+          className="dark:fill-black"
         >
-          <CardSpotlightDemo />
-        </div>
+          <path d="M12 0L24 24L0 24Z" fill="currentColor" />
+        </svg>
+      </div>
+      <GlobeDemo />
+      <HeroParallaxDemo />
+      <NextApp />
+      <BentoGridDemo />
+      <div style={{ height: 1 }} />
+      <div className="w-full rounded-t-4xl overflow-hidden relative">
+        <CardSpotlightDemo />
+      </div>
       <div className="w-full overflow-hidden relative bg-black">
         <PointerHighlightDemo />
         <div className="mx-4 md:mx-[10rem] flex justify-center items-center text-white mb-[6rem]">

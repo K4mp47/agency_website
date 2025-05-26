@@ -420,12 +420,17 @@ export default function GlobeDemo() {
         </p>
       </motion.div>
       <div className="absolute w-full bottom-0 inset-x-0 h-20 md:h-40 bg-gradient-to-b pointer-events-none select-none from-transparent dark:to-black to-white z-40 hidden md:block" />
-      <div className="w-full justify-center -bottom-10 md:-bottom-20 pt-4 h-48 md:h-full z-10 hidden md:flex">
-        <div style={{ width: "100%", height: "100%", maxWidth: "40rem", maxHeight: "40rem" }}>
+      <div className="absolute w-full justify-center -bottom-40 pt-4 h-48 md:h-full z-10 hidden md:flex">
+        <div
+          className="w-[40rem] h-[40rem] max-w-full max-h-full"
+          style={{ width: "40rem", height: "40rem", minWidth: "40rem", minHeight: "40rem" }}
+        >
+          <div style={{ width: "100%", height: "100%" }}>
             <World
               data={sampleArcs}
               globeConfig={globeConfig}
             />
+          </div>
         </div>
       </div>
       </div>

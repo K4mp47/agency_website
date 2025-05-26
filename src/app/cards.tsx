@@ -1,8 +1,26 @@
+import React, { useEffect, useRef } from "react";
 import { CardSpotlight } from "@/components/ui/card-spotlight";
 
-export function CardSpotlightDemo() {
+export function CardSpotlightDemo({ onInView }: { onInView?: (inView: boolean) => void }) {
+  const ref = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    if (!onInView) return;
+    const node = ref.current;
+    const observer = new window.IntersectionObserver(
+      ([entry]) => {
+        onInView(entry.isIntersecting);
+      },
+      { threshold: 0.1 }
+    );
+    if (node) observer.observe(node);
+    return () => {
+      if (node) observer.unobserve(node);
+    };
+  }, [onInView]);
+
   return (
-    <div className="flex flex-wrap gap-4 w-full justify-center bg-black pt-[24rem] mt-[8rem] px-4 rounded-t-4xl" id="pricing">
+    <div ref={ref} className="flex flex-wrap gap-4 w-full justify-center bg-black pt-[24rem] mt-[8rem] px-4 rounded-t-4xl pb-8" id="pricing">
       <h2 className="w-full text-center text-4xl sm:text-7xl font-extrabold text-white mb-12">
         Our Plans
       </h2>

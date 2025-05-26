@@ -21,7 +21,7 @@ export default function NextApp() {
     };    
 
   return (
-    <div className="flex flex-col gap-4 items-center text-center pt-40 px-4 sm:px-0 mb-8" id="product">
+    <div className="flex flex-col gap-4 items-center text-center pt-40 px-4 sm:px-0 mb-8" id="services">
           <h1 ref={title} className="text-4xl sm:text-7xl font-bold tracking-[-.01em]">
             {titleWords.map((word, i) => (
             <span key={i} className="relative overflow-hidden mr-4 inline-block">
