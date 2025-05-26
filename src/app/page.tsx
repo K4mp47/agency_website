@@ -14,7 +14,7 @@ import { FloatingNavDemo } from "./floatbar";
 export default function Home() {
 
   return (
-    <div className="">
+    <div className="flex flex-col min-h-screen">
       <FloatingNavDemo />
       {/* Reserve space for the navbar */}  
       <div className="z-40 top-10 sm:top-8 left-5 sm:left-8 hidden md:block fixed">
@@ -43,9 +43,7 @@ export default function Home() {
           <AccordionDemo />
         </div>
       </div>
-      <footer
-        className="row-start-3 flex gap-2 sm:gap-[24px] flex-wrap justify-center bg-black text-white h-[24rem] pb-2 lg:pb-8  items-end"
-      >
+      <footer className="lg:flex gap-2 sm:gap-[24px] flex-wrap justify-start h-full md:justify-center bg-black text-white pt-[20rem] pl-4 pb-4 lg:pb-8 items-end">
         <a
           className="flex items-center gap-2 hover:underline hover:underline-offset-4"
           href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
