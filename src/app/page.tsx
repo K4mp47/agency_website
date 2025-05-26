@@ -4,7 +4,6 @@ import Image from "next/image";
 import { NavbarDemo } from "./navbar";
 import React from "react";
 import { HeroParallaxDemo } from "./Parallax";
-import { motion } from "motion/react";
 import { BentoGridDemo } from "./grid";
 import { CardSpotlightDemo } from "./cards";
 import { PointerHighlightDemo } from "./pointer";
